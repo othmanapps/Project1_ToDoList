@@ -9,9 +9,9 @@
 import UIKit
 
 class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSource {
-
+    
     // Mark: Outlets:
-        @IBOutlet weak var firstTableView: UITableView!
+    @IBOutlet weak var firstTableView: UITableView!
     @IBOutlet weak var listNameTextField: UITextField!
     
     
@@ -25,8 +25,8 @@ class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSour
         DataController.sharedInstances.toDoLists.append(newList)
         
         firstTableView.reloadData()
-    
-        listNameTextField.text = nil 
+        
+        listNameTextField.text = nil
     }
     
     
@@ -42,7 +42,7 @@ class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSour
     }
     
     
- 
+    
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +53,7 @@ class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSour
         
         let toDoList = DataController.sharedInstances.toDoLists[myRow]
         
-
+        
         cell.textLabel?.text = toDoList.name
         
         
@@ -63,9 +63,13 @@ class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSour
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
         let ListOfItemsVC = segue.destination as! ListOfItemsVC
         let index = firstTableView.indexPathForSelectedRow!.row
         ListOfItemsVC.list = DataController.sharedInstances.toDoLists[index]
+        
+        
     }
     
     
@@ -73,24 +77,24 @@ class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

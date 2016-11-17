@@ -25,6 +25,21 @@ class ItemDescriptionVC: UIViewController, UITextViewDelegate  {
         
     }
     
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "secondBack" {
+            let ListOfItemsVC = segue.destination as! ListOfItemsVC
+            
+            
+            
+        }
+    
+    }
+    
+   
+    
+    
        override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +51,7 @@ class ItemDescriptionVC: UIViewController, UITextViewDelegate  {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
