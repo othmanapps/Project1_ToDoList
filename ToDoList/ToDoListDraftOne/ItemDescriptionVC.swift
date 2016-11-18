@@ -16,34 +16,30 @@ class ItemDescriptionVC: UIViewController, UITextViewDelegate  {
     
     
     @IBOutlet weak var descriptionTextView: UITextView!
-
-
+    
+    
+    
+    
     @IBAction func addDescription(_ sender: Any) {
-        let input = descriptionTextField.text
-        item.description = input!
-        descriptionTextView.text = item.description
+
+        
+        if item.description == "Add Description" {
+            let input = descriptionTextField.text
+            item.description = input!
+            descriptionTextView.text = item.description
+            
+        } else {
+            descriptionTextView.text = item.description
+        }
+        
         
     }
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier != "secondBack" {
-            let ListOfItemsVC = segue.destination as! ListOfItemsVC
-            
-            
-            
-        }
-    
-    }
-    
-   
+
     
     
        override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+descriptionTextView.text = item.description        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

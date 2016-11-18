@@ -23,7 +23,7 @@ class ListOfItemsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBAction func addItem(_ sender: Any) {
         let input = newItemTextField.text
-        let newItem = ToDoItem(name: input! , description: "")
+        let newItem = ToDoItem(name: input! , description: "Add Description")
         list.items.append(newItem)
         
         itemsListVC.reloadData()
@@ -67,8 +67,13 @@ class ListOfItemsVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
     
-    
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            DataController.sharedInstances.toDoLists[indexPath.row].items.remove(at: indexPath.row)
+           itemsListVC.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
