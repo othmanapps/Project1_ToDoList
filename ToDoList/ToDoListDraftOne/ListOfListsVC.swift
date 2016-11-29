@@ -49,12 +49,12 @@ class ListOfListsVC: UIViewController , UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! FirstTableViewCell
         
-        let myRow = indexPath.row
+//        let myRow = indexPath.row
+//        
+//        let toDoList = DataController.sharedInstances.toDoLists[myRow]
         
-        let toDoList = DataController.sharedInstances.toDoLists[myRow]
         
-        
-        cell.textLabel?.text = toDoList.name
+        cell.textLabel?.text = DataController.sharedInstances.toDoLists[indexPath.row].name
         
         
         return cell

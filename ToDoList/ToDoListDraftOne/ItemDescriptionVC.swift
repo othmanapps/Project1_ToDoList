@@ -30,9 +30,10 @@ class ItemDescriptionVC: UIViewController, UITextViewDelegate  {
             
         } else {
             descriptionTextView.text = item.description
+        
         }
         
-        
+    
     }
 
     
